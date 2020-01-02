@@ -1,0 +1,107 @@
+@import "theme";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $mainBg-color;
+  padding: 2rem 10%;
+}
+
+li,
+a,
+button {
+  font-family: "circular", sans-serif;
+  text-decoration: none;
+  color: $mainFont-color;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  cursor: pointer;
+  padding-right: 2rem;
+}
+
+.nav-links,
+.cta {
+  display: none;
+}
+button {
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background-color: $mainBtn-color;
+  &:hover {
+    background-color: $btnHover-color;
+  }
+}
+
+.overlay {
+  height: 100%;
+  width: 0; //will remain 0 until onclick event
+  background-color: $mainBg-color;
+  z-index: 1;
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow-x: hidden; //eliminate possible x-axis scrolling
+  transition: all 0.5s ease;
+  a {
+    &:hover {
+      color: $btnHover-color;
+    }
+  }
+  .close {
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    font-size: 3rem;
+    cursor: pointer;
+  }
+}
+.overlay-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  li {
+    list-style: none;
+    text-align: center;
+    padding: 2rem;
+    a {
+      font-size: 2rem;
+    }
+  }
+}
+@media screen and (min-width: 990px) {
+  .nav-links,
+  .cta {
+    display: flex;
+    li {
+      list-style: none;
+      padding: 0 1.5rem;
+      a {
+        transition: color 0.3s ease;
+        &:hover {
+          color: $btnHover-color;
+        }
+      }
+    }
+  }
+  .menu {
+    display: none;
+  }
+}
